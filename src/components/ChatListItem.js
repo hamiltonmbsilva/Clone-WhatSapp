@@ -4,6 +4,23 @@ import './ChatListItem.css';
 
 export default () => {
     return(
-        <div>...</div>
+        <div className="chatListItem">
+            <img className="chatListItem--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU" alt="" />
+            <div className="chatListItem--lines">
+                <div className="chatListItem--line">
+                    <div className="chatListItem--name">
+                        Nome da pessoa
+                    </div>
+                    <div className="chatListItem--date">
+                        20:42
+                    </div>
+                </div>
+                <div className="chatListItem--line">
+                    <div className="chatListItem--lastMsg">
+                        <p>Opa, tudo bem?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
