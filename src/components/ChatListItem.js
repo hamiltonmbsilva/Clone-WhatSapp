@@ -1,10 +1,13 @@
-import { Divider } from '@material-ui/core';
+//import { Divider } from '@material-ui/core';
 import React from 'react';
 import './ChatListItem.css';
 
-export default () => {
-    return(
-        <div className="chatListItem">
+export default ({onClick}) => {
+    return (
+        <div 
+            className="chatListItem"
+            onClick={onClick}
+        >
             <img className="chatListItem--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU" alt="" />
             <div className="chatListItem--lines">
                 <div className="chatListItem--line">
