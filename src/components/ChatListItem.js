@@ -2,10 +2,10 @@
 import React from 'react';
 import './ChatListItem.css';
 
-export default ({onClick}) => {
+export default ({onClick, active}) => {
     return (
         <div 
-            className="chatListItem"
+            className={`chatListItem ${active?'active':''}`}
             onClick={onClick}
         >
             <img className="chatListItem--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU" alt="" />
