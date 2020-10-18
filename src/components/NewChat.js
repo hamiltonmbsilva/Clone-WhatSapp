@@ -1,36 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NewChat.css';
+
+import Api from '../Api';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default ({user, chatlist, show, setShow}) => {
-    const [list, setList] = useState([
-        {
-            id: 123, 
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU', 
-            name: 'Hamilton'
-        },
-        {
-            id: 123, 
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU', 
-            name: 'Hamilton'
-        },
-        {
-            id: 123, 
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU', 
-            name: 'Hamilton'
-        },
-        {
-            id: 123, 
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU', 
-            name: 'Hamilton'
-        },
-        {
-            id: 123, 
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU', 
-            name: 'Hamilton'
-        },
-    ]);
+    const [list, setList] = useState([]);
+
+    useEffect(()=>{
+        const getList = async () => {
+            if(user !== null){
+                let results = await Api.getContactList(user.id);
+                setList(results);
+            }
+        }
+        getList();
+    }, [user]);
 
     const handleClose = () => {
         setShow(false);

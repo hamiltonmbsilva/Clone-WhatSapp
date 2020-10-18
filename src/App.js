@@ -16,15 +16,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 export default () => {
 
-  const [charlist, setChatList] = useState([
-    {chatId: 1, title: 'Fulano de Tal', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU'},
-    {chatId: 2, title: 'Fulano de Tal', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU'},
-    {chatId: 3, title: 'Fulano de Tal', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU'},
-    {chatId: 4, title: 'Fulano de Tal', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU'}
-  ]);
-
+  const [charlist, setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    id: 'AEJd3N9c2XUEiEVo9qnbS0lJ2Gy2',
+    name: 'Hamilton',
+    avatar: 'https://graph.facebook.com/3422007254501767/picture'
+  });
   const [showNewChat, setShowNewChat] = useState(false);
 
   const handleNewChat = () => {
