@@ -72,8 +72,16 @@ export default ({user, data}) => {
         }
     }
 
+    const handleInputKeyUp = (e) =>{
+        if(e.keyCode == 13){
+            handleSendClick();
+        }
+    }
+
     const handleSendClick = () => {
-        
+        if(text !== ''){
+            
+        }
     }
 
     return (
@@ -142,6 +150,7 @@ export default ({user, data}) => {
                         placeholder="Digite uma mensagem"
                         value={text}
                         onChange={e=>setText(e.target.value)}
+                        onKeyUp = {handleInputKeyUp}
                     />
 
                 </div>
