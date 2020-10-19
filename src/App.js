@@ -97,6 +97,7 @@ export default () => {
         {activeChat.chatId !== undefined &&
           <ChatWindow
             user={user}
+            data={activeChat}
           />
         }
         {activeChat.chatId === undefined &&

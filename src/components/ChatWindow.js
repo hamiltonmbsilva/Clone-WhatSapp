@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import './ChatWindow.css';
 
+import Api from '../Api';
+
 import MessageItem from './MessageItem';
 
 import SearchIcon from '@material-ui/icons/Search';
@@ -12,7 +14,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
-export default ({user}) => {
+export default ({user, data}) => {
 
     const body = useRef();
 
@@ -25,24 +27,15 @@ export default ({user}) => {
     const [emojiOpen, setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
-    const [list, setList] = useState([
-        {author: '123', body: 'bla bla bla'},
-        {author: '123', body: 'bla bla'},
-        {author: '1234', body: 'bla bla bla bla'},
-        {author: '1234', body: 'bla'}, 
-        {author: '123', body: 'bla bla bla'},
-        {author: '123', body: 'bla bla'},
-        {author: '1234', body: 'bla bla bla bla'},
-        {author: '1234', body: 'bla'},
-        {author: '123', body: 'bla bla bla'},
-        {author: '123', body: 'bla bla'},
-        {author: '1234', body: 'bla bla bla bla'},
-        {author: '1234', body: 'bla'},
-        {author: '123', body: 'bla bla bla'},
-        {author: '123', body: 'bla bla'},
-        {author: '1234', body: 'bla bla bla bla'},
-        {author: '1234', body: 'bla'},
-    ]);
+    const [list, setList] = useState([]);
+
+    useEffect(()=>{
+
+        setList([]);
+        let unsub = Api.onChatContent(data.chatId, setList);
+        return unsub;
+
+    }, [data.chatId]);
 
     useEffect(()=>{
         if(body.current.scrollHeight > body.current.offsetHeight){
@@ -87,8 +80,8 @@ export default ({user}) => {
         <div className="chatWindow">
            <div className="chatWindow--header">
                 <div className="chatWindow--headerinfo">
-                    <img className="chatWindow--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsRX6QzCX2rxKzfmn7VlsMYA0TYTW5Nt6o5g&usqp=CAU" alt="" />
-                    <div className="chatWindow--name">Nome do usuario</div>
+                    <img className="chatWindow--avatar" src={data.image} alt="" />
+                    <div className="chatWindow--name">{data.title}</div>
                 </div>
                 <div className="chatWindow--headerbuttons">
                     <div className="chatWindow--btn">
