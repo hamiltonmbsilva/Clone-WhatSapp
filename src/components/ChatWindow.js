@@ -28,11 +28,12 @@ export default ({user, data}) => {
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
     const [list, setList] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(()=>{
 
         setList([]);
-        let unsub = Api.onChatContent(data.chatId, setList);
+        let unsub = Api.onChatContent(data.chatId, setList, setUsers);
         return unsub;
 
     }, [data.chatId]);
@@ -80,7 +81,9 @@ export default ({user, data}) => {
 
     const handleSendClick = () => {
         if(text !== ''){
-            
+            Api.sendMessage(data, user.id, 'text', text, users);
+            setText('');
+            setEmojiOpen(false);
         }
     }
 

@@ -29,7 +29,7 @@ export default ({onClick, active, data}) => {
                         {data.title}
                     </div>
                     <div className="chatListItem--date">
-                        20:42
+                        {time}
                     </div>
                 </div>
                 <div className="chatListItem--line">
