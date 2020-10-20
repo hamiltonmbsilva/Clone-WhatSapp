@@ -6,7 +6,7 @@
 <p>O banco de dados utilizado e o Firebase, para armazenar as informações do chats.</p>
 <p>O FrontEnd esta Hospedado no netlify no link:</p>
 <p>Link para o Whatsapp clone : https://clonewhatsapp.netlify.app</p>  
-<br/>
+
 ###Bibliotecas utilizados no projeto
 -Firebase
 <br/>
@@ -15,7 +15,7 @@
 -@material-ui/icons
 <br/>
 -emoji-picker-react
-<br/>
+<br/><br/>
 #### Install
 <br/>
 # clone this repositoy
