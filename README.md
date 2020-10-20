@@ -15,10 +15,10 @@
 -@material-ui/icons
 <br/>
 -emoji-picker-react
-<br/><br/>
-#### Install
 <br/>
-# clone this repositoy
+#### Install
+
+##### clone this repositoy
   <br/>
 $ git clone https://github.com/hamiltonmbsilva/Clone-WhatSapp
    <br/>
