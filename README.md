@@ -17,9 +17,7 @@
 -emoji-picker-react
 <br/>
 #### Install
-
-##### clone this repositoy
-  <br/>
+##### clone this repositoy 
 $ git clone https://github.com/hamiltonmbsilva/Clone-WhatSapp
    <br/>
 npm install
